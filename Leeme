@@ -1,0 +1,18 @@
+<#
+Aplicación que permite que un usuario sin privilegios ejecute una aplicacion con credenciales de administrador
+Recibe 4 parametros de entrada
+Usuario, password, aplicacion a ejecutar y directorio donde se dejaran los ficheros encargados de ejecutar el script final
+Genera carpeta con 5 ficheros en el directorio elegido con el nombre de la aplicacion a ejecutar:
+-Fichero usuario.txt con el usuario en texto plano
+-Fichero password.txt con la password encriptada
+-Fichero "aplicacion".exe.txt con el nombre de la aplicacion a ejecutar en texto plano
+-Fichero "aplicacion".exe.ps1 con el script que permite la ejecucion de la aplicacion con las credenciales indicadas.
+-Fichero "aplicacion".exe.bat que permite la ejecucion del PS1 saltandose la limitacion de powershell de no ejecutar scripts y abrir el editor (un enlace a este fichero es el que abria que darle al usuario final)
+-Aviso-
+Puede ser necesario cambiar la politica de ejecución de scripts de Powershell de restricted. Lo mas conveniente es poner remote signed.
+Set-ExecutionPolicy RemoteSigned
+-Aviso-
+La carpeta con el resultado final del script debe guardarse en un directorio donde se tengan permisos para ejecutar.
+Ej: Si guardamos la carpeta en el escritorio del usuario "pepito" y las credenciales de ejecucion que hemos elegido son "pepito_admin", dara un error de directorio no encontrado.
+27_06_2015
+#>
